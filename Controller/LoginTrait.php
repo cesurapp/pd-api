@@ -1,10 +1,19 @@
 <?php
 
+/**
+ * This file is part of the pd-admin pd-api package.
+ *
+ * @package     pd-api
+ * @license     LICENSE
+ * @author      Ramazan APAYDIN <apaydin541@gmail.com>
+ * @link        https://github.com/appaydin/pd-api
+ */
+
 namespace Pd\ApiBundle\Controller;
 
 use Lexik\Bundle\JWTAuthenticationBundle\Services\JWTTokenManagerInterface;
-use Symfony\Component\Routing\Annotation\Route;
 use OpenApi\Annotations as OA;
+use Symfony\Component\Routing\Annotation\Route;
 
 trait LoginTrait
 {
@@ -37,12 +46,12 @@ trait LoginTrait
      *     )
      * )
      */
-    #[Route("/auth/login", name: 'api.login', methods: ['POST'])]
+    #[Route('/auth/login', name: 'api.login', methods: ['POST'])]
     public function attemptLogin(JWTTokenManagerInterface $tokenManager)
     {
         return [
             'token' => $tokenManager->create($this->getUser()),
-            'data' => $this->getUser()
+            'data' => $this->getUser(),
         ];
     }
 }

@@ -35,18 +35,18 @@ class PdApiExtension extends Extension implements PrependExtensionInterface
 
         // Set Configuration
         foreach ($configs as $key => $value) {
-            $container->setParameter('pd_api.' . $key, $value);
+            $container->setParameter('pd_api.'.$key, $value);
         }
 
         // Load Services
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
     }
 
     public function prepend(ContainerBuilder $container)
     {
         $container->loadFromExtension('twig', [
-            'paths' => [__DIR__ . '/../Resources/views/NelmioApiDocBundle' => 'NelmioApiDoc']
+            'paths' => [__DIR__.'/../Resources/views/NelmioApiDocBundle' => 'NelmioApiDoc'],
         ]);
     }
 }

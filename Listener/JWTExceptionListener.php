@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of the pd-admin pd-api package.
+ *
+ * @package     pd-api
+ * @license     LICENSE
+ * @author      Ramazan APAYDIN <apaydin541@gmail.com>
+ * @link        https://github.com/appaydin/pd-api
+ */
+
 namespace Pd\ApiBundle\Listener;
 
 use Lexik\Bundle\JWTAuthenticationBundle\Event\AuthenticationFailureEvent;
@@ -49,11 +58,11 @@ class JWTExceptionListener implements EventSubscriberInterface
         $response->setContent($this->serializer->serialize([
             'message' => $this->translator->trans($message, [], 'exception'),
             'code' => $response->getStatusCode(),
-            'type' => $type
+            'type' => $type,
         ], $this->accept->getAcceptType()));
 
         // Set Accept Content Type
-        $response->headers->set('Content-Type', 'application/' . $this->accept->getAcceptType());
+        $response->headers->set('Content-Type', 'application/'.$this->accept->getAcceptType());
 
         return $response;
     }

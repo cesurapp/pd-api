@@ -41,7 +41,7 @@ class ResponseTransformerListener implements EventSubscriberInterface
         // Create Response
         $result = $this->serializer->serialize($result, $this->accept->getAcceptType());
         $response = (new Response())->setContent($result)->setStatusCode(200);
-        $response->headers->set('Content-Type', 'application/' . $this->accept->getAcceptType());
+        $response->headers->set('Content-Type', 'application/'.$this->accept->getAcceptType());
         $event->setResponse($response);
     }
 

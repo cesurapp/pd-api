@@ -49,7 +49,7 @@ class ExceptionListener implements EventSubscriberInterface
         $response = (new Response())
             ->setContent($this->serializer->serialize($error, $this->accept->getAcceptType()))
             ->setStatusCode($error['code']);
-        $response->headers->set('Content-Type', 'application/' . $this->accept->getAcceptType());
+        $response->headers->set('Content-Type', 'application/'.$this->accept->getAcceptType());
         $event->setResponse($response);
     }
 

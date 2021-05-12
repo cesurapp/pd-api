@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * This file is part of the pd-admin pd-api package.
+ *
+ * @package     pd-api
+ * @license     LICENSE
+ * @author      Ramazan APAYDIN <apaydin541@gmail.com>
+ * @link        https://github.com/appaydin/pd-api
+ */
+
 namespace Pd\ApiBundle\Services;
 
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -19,7 +28,7 @@ class AcceptContentType
             $request = $this->requestStack->getCurrentRequest();
             $this->type = $request->getFormat($request->headers->get('Accept'));
 
-            if (!in_array($this->type, $this->bag->get('pd_api.allow_accept'), true)) {
+            if (!\in_array($this->type, $this->bag->get('pd_api.allow_accept'), true)) {
                 $this->type = $this->bag->get('pd_api.default_accept');
             }
         }

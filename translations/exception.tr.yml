@@ -1,0 +1,6 @@
+Invalid request body: Geçersiz istek gövdesi
+Invalid JWT Token: Geçersiz JWT Jetonu
+Expired JWT Token: JWT Token Süresi Dolmuş
+JWT Token not found: JWT Token Bulunamadı
+Bad credentials: Kimlik Doğrulanamadı
+Invalid credentials.: Geçersiz kimlik bilgileri.

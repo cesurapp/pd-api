@@ -50,8 +50,7 @@ return [
 # config/packages/pd_api.yaml
 
 pd_api:
-    zone: ^/api
-    default_accept: App\Entity\User
+    zone: ["^/api"]
     default_accept: json
     allow_accept: ['json', 'xml']
 ```

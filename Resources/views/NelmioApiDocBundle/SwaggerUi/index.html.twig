@@ -1,0 +1,69 @@
+{% extends '@!NelmioApiDoc/SwaggerUi/index.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/custom-swagger-styles.css') }}">
+    <style>
+        header {display: none}
+        body {margin-top: 0}
+        hgroup.main{ margin-bottom: 10px !important;}
+        #swagger-ui.api-platform .information-container.wrapper{margin-bottom: 20px}
+        #swagger-ui.api-platform .wrapper{padding: 0 50px}
+        .swagger-ui .opblock-tag-section{border:1px solid rgba(0,0,0,0.2); border-bottom: none; border-radius: 2px; margin-bottom: 10px;}
+        .swagger-ui .opblock-tag-section.is-open{border-bottom:1px solid rgba(0,0,0,0.2)}
+        #swagger-ui.api-platform .opblock-tag{padding: 7px 15px !important; font-size: 18px; text-transform: capitalize; font-weight: 400;margin-bottom: 0}
+        #swagger-ui.api-platform .opblock-tag:hover{transform:none}
+        .swagger-ui .expand-methods, .swagger-ui .expand-operation{display: flex;align-items: center;justify-content: center;padding-right: 0}
+        #swagger-ui.api-platform .opblock-tag + .no-margin{padding: 10px; padding-bottom: 0}
+        .swagger-ui .opblock .opblock-section-header{min-height: 46px}
+        .swagger-ui .table-container{padding: 10px 20px;}
+        .swagger-ui table thead tr td, .swagger-ui table thead tr th{padding: 8px 0}
+        .swagger-ui table tbody tr td:first-of-type{min-width: 8em}
+        .swagger-ui .markdown p, .swagger-ui .markdown pre, .swagger-ui .renderedMarkdown p, .swagger-ui .renderedMarkdown pre{margin: 0 0 10px;}
+        .swagger-ui .execute-wrapper{padding: 0;}
+        .swagger-ui .execute-wrapper > button{margin-bottom: 10px}
+        .swagger-ui textarea{min-height: 150px; margin: 0 !important; padding: 5px !important; border: 1px solid rgba(0,0,0,.2)}
+        .swagger-ui .opblock-description-wrapper, .swagger-ui .opblock-external-docs-wrapper, .swagger-ui .opblock-title_normal{margin-bottom: 12px;padding-bottom: 0}
+        #swagger-ui.api-platform .execute-wrapper{text-align: left; margin: 0 20px}
+        #swagger-ui.api-platform .execute-wrapper .btn{padding:6px 30px}
+        .swagger-ui .responses-inner{padding: 10px 20px}
+        .swagger-ui .tab li:first-of-type{padding-left: 0 !important;}
+        .swagger-ui .opblock .tab-header .tab-item.active h4 span:after{width: 100%}
+        .swagger-ui .response-control-media-type{display: flex; flex-flow: row wrap; align-items: center; width: 100%}
+        .swagger-ui .response-control-examples__title, .swagger-ui .response-control-media-type__title{width: 100%; margin-bottom: .4em}
+        .swagger-ui .response-control-media-type__accept-message{margin-left: .4em}
+        .swagger-ui .model-box{width: 100%; display: flex}
+        .model-box .model .pointer{display: inline-flex;align-items: center;justify-content: center;}
+        .swagger-ui .model-toggle{ top:2px;margin-right: 7px;}
+        .swagger-ui .model-toggle:after{width: 10px; height: 10px; background-size: auto}
+        .swagger-ui .highlight-code>.microlight{min-height: 1em;}
+        .swagger-ui .btn-group{padding: 0 20px 10px;}
+        .body-param{display: flex}
+        #swagger-ui.api-platform .btn-group .btn{padding: 6px 30px}
+        #swagger-ui.api-platform .btn-group{margin-left: 0}
+        .swagger-ui .download-contents, .swagger-ui .copy-to-clipboard{height: 27px}
+        .swagger-ui .download-contents{width: 82px}
+
+        .swagger-ui .auth-wrapper{flex: none}
+        .swagger-ui .servers-title{display: none}
+        .swagger-ui .scheme-container{padding: 4px 0; margin-top: -108px; min-height: 88px; display: flex; align-items: center}
+        .swagger-ui .scheme-container .schemes{display: flex;justify-content: flex-end;flex-direction: column}
+        .swagger-ui .scheme-container .schemes > div{padding: 5px 0}
+        .swagger-ui .auth-wrapper .authorize{margin-right: 0; padding: 2px 15px !important;}
+        .swagger-ui .servers>label{margin-right: 0}
+
+        .swagger-ui .dialog-ux .modal-ux-header h3{font-weight: 500;}
+        .swagger-ui .dialog-ux .modal-ux-content{padding: 10px 20px;}
+        .swagger-ui .auth-container:last-of-type{padding: 0}
+        .swagger-ui .auth-btn-wrapper button{margin: 0 10px;}
+        .swagger-ui .auth-container h4{margin-top: 0; font-size: 16px; margin-bottom: 10px !important;}
+        .swagger-ui .auth-container .wrapper{padding: 0 !important;}
+        .swagger-ui .auth-container .wrapper + .wrapper{width: 100%}
+        .swagger-ui .auth-container .wrapper + .wrapper input{width: 100%}
+    </style>
+{% endblock stylesheets %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('js/custom-request-signer.js') }}"></script>
+{% endblock javascripts %}

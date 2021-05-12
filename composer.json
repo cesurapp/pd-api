@@ -1,0 +1,29 @@
+{
+    "name": "appaydin/pd-api",
+    "description": "Symfony Restful Api Bundle",
+    "homepage": "https://github.com/appaydin/pd-api",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "keywords": [
+        "pd-admin",
+        "pd-api",
+        "restful-api",
+        "api"
+    ],
+    "authors": [
+        {
+            "name": "Ramazan APAYDIN",
+            "homepage": "https://github.com/appaydin"
+        }
+    ],
+    "require": {
+        "php": ">=8.0.0",
+        "lexik/jwt-authentication-bundle": "2.*",
+        "symfony/serializer": "5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pd\\ApiBundle\\": ""
+        }
+    }
+}

@@ -34,7 +34,7 @@ class ResponseTransformerListener implements EventSubscriberInterface
         }
 
         // Check Master Request || Response Object
-        if (!$event->isMasterRequest() || ($result = $event->getControllerResult()) instanceof Response) {
+        if (!$event->isMainRequest() || ($result = $event->getControllerResult()) instanceof Response) {
             return;
         }
 

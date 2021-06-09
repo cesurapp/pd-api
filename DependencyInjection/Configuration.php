@@ -26,6 +26,7 @@ class Configuration implements ConfigurationInterface
             ->children()
             ->arrayNode('zone')->scalarPrototype()->end()->defaultValue(['^/api'])->end()
             ->scalarNode('default_accept')->defaultValue('json')->end()
+            ->arrayNode('default_groups')->scalarPrototype()->end()->defaultValue(['default'])->end()
             ->arrayNode('allow_accept')->scalarPrototype()->end()->defaultValue(['xml', 'json'])->end()
             ->end();
 

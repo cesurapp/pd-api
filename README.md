@@ -52,6 +52,7 @@ return [
 pd_api:
     zone: ["^/api"]
     default_accept: json
+    default_groups: ['default']
     allow_accept: ['json', 'xml']
 ```
 #### Step 4: Settings Security.yaml

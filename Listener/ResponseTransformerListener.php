@@ -13,6 +13,7 @@ namespace Pd\ApiBundle\Listener;
 
 use Pd\ApiBundle\PdApiBundle;
 use Pd\ApiBundle\Services\AcceptContentType;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ViewEvent;
@@ -22,7 +23,8 @@ use Symfony\Component\Serializer\SerializerInterface;
 class ResponseTransformerListener implements EventSubscriberInterface
 {
     public function __construct(private SerializerInterface $serializer,
-                                private AcceptContentType $accept)
+                                private AcceptContentType $accept,
+                                private ParameterBagInterface $bag)
     {
     }
 
@@ -39,7 +41,7 @@ class ResponseTransformerListener implements EventSubscriberInterface
         }
 
         // Create Response
-        $result = $this->serializer->serialize($result, $this->accept->getAcceptType());
+        $result = $this->serializer->serialize($result, $this->accept->getAcceptType(), ['groups' => $this->bag->get('pd_api.default_groups')]);
         $response = (new Response())->setContent($result)->setStatusCode(200);
         $response->headers->set('Content-Type', 'application/'.$this->accept->getAcceptType());
         $event->setResponse($response);
